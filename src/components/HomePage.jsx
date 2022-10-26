@@ -103,6 +103,7 @@ function HomePage() {
     }
     else {
       fetchMovie(`https://api.themoviedb.org/3/search/movie?api_key=f4d13e54ee0dd343bf1d107564f37d83&query=${search}`)
+      
     }
   }, [search]);
 
