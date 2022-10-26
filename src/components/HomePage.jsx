@@ -45,12 +45,13 @@ function HomePage() {
 
         const Data = films;
         Data.map((res) => {
-
+          
           if (res.poster_path === null) {
             res.poster_path = "/vZ9WvnZnhEsyMpxxTyGhZGdoBaS.jpg"
             console.log("null poster value")
           }
           res.poster_path = "https://image.tmdb.org/t/p/w500" + res.poster_path;
+          res.vote_average=Math.round(res.vote_average *10)/10;
 
         })
         setFilterData(Data)
@@ -117,7 +118,7 @@ function HomePage() {
           <p className="text-5xl text-white tracking-wide brightness-150 ">Million of movies,TV shows and people to discover.Explore now.</p>
           <div className="text-center ">
             <input type="text" placeholder="What are you loooking for..." className=" text-black mt-10 mb-12 w-[60%] h-12 rounded-xl pl-5 ml-10  " onChange={handleFilter} />
-            <SearchIcon className="text-blue-500 font-semibold scale-[1.3] relative right-10 bottom-0.5 " />
+            <SearchIcon className=" text-blue-500 font-semibold scale-[1.3] relative right-10 bottom-0.5 " />
 
           </div>
 
