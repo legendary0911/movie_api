@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 function HomePage() {
 
-  const initarray = [{ vote_average: 5, title: "cbum cutie", overview: "hxhjsa gcsdhc sdcgasdcsbcshcabsg asacasaca ssacascsjb ", img: "null", id: 69, release_date: "19/08/2002" }];
+  const initarray = [{ vote_average: 5, title: "cbum cutie", overview: "random random random random ", img: "null", id: 69, release_date: "19/08/2002" }];
   const [filteredData, setFilterData] = useState(initarray);
   const [search, setSearch] = useState();
   const [i, seti] = useState(0);
