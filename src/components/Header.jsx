@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 function Header(props) {
-    const [ham_menu,set_menu]=useState(true);
+    const [ham_menu,set_menu]=useState(false);
    
     return (
         <div className="sticky top-0 z-10 bg-[#111827] text-white">

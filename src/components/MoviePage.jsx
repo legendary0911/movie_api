@@ -53,14 +53,14 @@ function MoviePage(props) {
     let min=arr.runtime%60;
     let hour=Math.floor(arr.runtime/60);
     return (
-        <div >
+        <div className='bg-[url("https://wallpapers.com/images/hd/starry-sky-night-dark-sky-stars-zeyj6p1s41agbk57.jpg")]'>
             <Header></Header>
             <div className='lg:flex brightness-100 text-white  bg-[url("https://wallpapers.com/images/hd/starry-sky-night-dark-sky-stars-zeyj6p1s41agbk57.jpg")]'>
               
 
                     <img src={arr.poster_path} className=' h-[40%] w-[60%] lg:w-96 lg:h-[80%] rounded-2xl mx-auto lg:mx-0 lg:ml-[5%] lg:mr-[1%] lg:mt-16 lg:pt-0 pt-20 lg:mb-16'></img>
                 
-                <div className='info backdrop-blur-3xl bg-white/[0.06] mr-10 mt-16 mb-16 rounded-2xl div  pb-20 pl-5'>
+                <div className='info mb-20 pb-28 backdrop-blur-3xl bg-white/[0.06] mr-10 ml-[5%] md:ml-[0%] mt-16 lg:mb-16 rounded-2xl div   pl-5'>
                     <div className='text-5xl md:text-6xl font-medium mt-24'>
                         <p>{arr.title}</p>
 

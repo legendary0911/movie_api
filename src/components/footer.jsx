@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom/client';
 
 function Footer1(){
     return(
-        
-    <div className="p-4 pt-10 bg-[#111827]">
+    <div className='bg-[#111827]'>
+    <div className="p-4 pt-10  brightness-105">
     <div className="md:flex md:justify-between">
       <div className="mb-6 md:mb-0">
         <a href="#" className="flex items-center ">
@@ -128,6 +128,7 @@ function Footer1(){
           <span className="sr-only">GitHub account</span>
         </a>
       </div>
+    </div>
     </div>
     </div>
    )
