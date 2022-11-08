@@ -5,14 +5,17 @@ import Header from "./Header";
 import Footer1 from "./footer";
 import { Link, useLocation } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
+import CancelIcon from '@mui/icons-material/Cancel';
+import Close from "@mui/icons-material/Close";
 
 
 
 function HomePage() {
 
-  const initarray = [{ vote_average: 5, title: "cbum cutie", overview: "random random random random ", img: "null", id: 69, release_date: "19/08/2002" }];
+  const initarray = [{ vote_average: 5, title: "Raj Lodu :)", overview: "random random random random ", img: "null", id: 69, release_date: "19/08/2002" }];
   const [filteredData, setFilterData] = useState(initarray);
   const [search, setSearch] = useState();
+  const[close,setClose]=useState("");
   const [i, seti] = useState(0);
   const [j, setj] = useState(12);
   const data = useLocation();
@@ -21,15 +24,17 @@ function HomePage() {
 
 
 
-  function handleFilter(event) {
-    const searchWord = event.target.value;
+  function handleFilter() {
+
+    const searchWord = document.getElementById("hehe").value;
+    console.log(searchWord)
     setSearch(searchWord);
 
 
   };
 
   async function fetchMovie(url) {
-    console.log("movie fetcher on1 called")
+    
 
     const res = await fetch(url)
 
@@ -40,6 +45,8 @@ function HomePage() {
           );
         }
         return response.json();
+        console.log(response.json);
+        
       })
       .then(({ results: films }) => {
 
@@ -57,7 +64,7 @@ function HomePage() {
         setFilterData(Data)
         seti(0);
         setj(12);
-        console.log("this is searched data");
+       
         console.log(filteredData);
 
       })
@@ -112,14 +119,14 @@ function HomePage() {
     <div>
       <div className=' bg-[url("https://i.stack.imgur.com/yDr7J.jpg")]'>
         <Header on1={()=> fetchMovie(`https://api.themoviedb.org/3/trending/movie/day?api_key=f4d13e54ee0dd343bf1d107564f37d83`)} on2={() => fetchMovie(`https://api.themoviedb.org/3/trending/movie/week?api_key=f4d13e54ee0dd343bf1d107564f37d83`)} on3={() => fetchMovie(`https://api.themoviedb.org/3/movie/top_rated?api_key=f4d13e54ee0dd343bf1d107564f37d83#`)} className="" />
-        <div className="rounded-b-2xl w-[80%] mx-auto pl-10 pt-6 bg-[url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg')]">
+        <div className="rounded-b-2xl w-[96%] md:w-[80%] mx-auto pl-10 pt-6 pb-8 md:pb-0 bg-[url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg')]">
 
           <p className="text-5xl md:text-6xl text-white mb-2">Welcome</p>
           <p className="text-4xl md:text-5xl text-white tracking-wide brightness-150 ">Million of movies,TV shows and people to discover. Explore now.</p>
           <div className=" text-center ">
-            <input type="text" placeholder="What are you loooking for..." className=" text-black mt-10 mb-12 w-[60%] h-12 rounded-xl pl-5 ml-10  " onChange={handleFilter} />
-            <SearchIcon className=" text-blue-500 font-semibold scale-[1.3] relative right-10 bottom-0.5 " />
-
+            <input id="hehe"onChange={(event)=>{setClose(event.target.value)}} type="text" placeholder="What are you loooking for..." className=" text-black mt-10 mb-12 w-[60%] md:w-[60%] h-12 rounded-xl pl-5 ml-10  "  />
+            <SearchIcon onClick={handleFilter} className=" text-blue-500 font-semibold md:scale-[1.3] relative top-[3.5rem] right-[32%]  md:top-0 bg-white scale-[1.4]  px-1 py-1 rounded-full md:bg-transparent md:right-10 bottom-0.5 " />
+           {close===""?<div className="relative invisible left-[74%] bottom-[5.2rem] w-fit  "><Close onClick={(event)=>{document.getElementById("hehe").value=""; setClose("") }} className=" text-blue-500 font-semibold md:scale-[1.2] bg-white scale-[1.4]  px-1 py-1 rounded-full hover:bg-gray-300 md:bg-transparent  md:bg-gray-200  " /></div>:<div className="relative  left-[74%] bottom-[5.2rem] w-fit  "><Close onClick={(event)=>{document.getElementById("hehe").value=""; setClose("") }} className=" text-blue-500 font-semibold md:scale-[1.2] bg-white scale-[1.4]  px-1 py-1 rounded-full hover:bg-gray-300 md:bg-transparent  md:bg-gray-200  " /></div>} 
           </div>
 
         </div>
@@ -129,12 +136,12 @@ function HomePage() {
         </div>
 
         <div className="mt-10 w-[78%] mb-6 rounded-lg border-white border-[1px] bg-[#111827] mx-auto px-10 py-4">
-          {i !== 0 ? <button className=" hover:bg-blue-500 hover:text-white lg:ring-2 lg:ring-offset-4 lg:ring-offset-[#111827] h-10 w-20 text-xl bg-white rounded-lg mr-4" onClick={() => {
+          {i !== 0 ? <button className=" hover:bg-blue-500 hover:text-white  h-10 w-20 text-xl bg-white rounded-lg mr-4" onClick={() => {
             seti(i - 12);
             setj(j - 12);
 
           }}>back</button> : null}
-          <button className="hover:bg-blue-500 hover:text-white lg:ring-2 lg:ring-offset-4 lg:ring-offset-[#111827] h-10 w-20 text-xl bg-white rounded-lg " onClick={() => {
+          <button className="hover:bg-blue-500 hover:text-white  h-10 w-20 text-xl bg-white rounded-lg " onClick={() => {
 
             seti(i + 12);
             setj(j + 12);
