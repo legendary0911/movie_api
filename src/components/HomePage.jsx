@@ -7,12 +7,13 @@ import { Link, useLocation } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import CancelIcon from '@mui/icons-material/Cancel';
 import Close from "@mui/icons-material/Close";
+import initdata from "./data";
 
 
 
 function HomePage() {
 
-  const initarray = [{ vote_average: 5, title: "Raj Lodu :)", overview: "random random random random ", img: "null", id: 69, release_date: "19/08/2002" }];
+  const initarray =initdata;
   const [filteredData, setFilterData] = useState(initarray);
   const [search, setSearch] = useState();
   const[close,setClose]=useState("");
@@ -32,6 +33,25 @@ function HomePage() {
 
 
   };
+
+  function toggle(word) {
+    const arr = ["Trending", "Latest", "Popular"]
+    arr.map((res) => {
+        console.log(res == word)
+        if (res == word) {
+
+            document.getElementById(`${res}`).className = "font-medium text-lg text-blue-500 cursor-pointer border-b-4 pb-2 border-blue-400 "
+
+
+        }
+        else {
+            document.getElementById(`${res}`).className = "font-medium text-lg hover:text-blue-500 cursor-pointer hover:border-b-4 pb-2 hover:border-blue-400 ease-in-out duration-[200ms]"
+
+        }
+
+    })
+}
+
 
   async function fetchMovie(url) {
     
@@ -118,7 +138,7 @@ function HomePage() {
   return (
     <div>
       <div className=' bg-[url("https://i.stack.imgur.com/yDr7J.jpg")]'>
-        <Header on1={()=> fetchMovie(`https://api.themoviedb.org/3/trending/movie/day?api_key=f4d13e54ee0dd343bf1d107564f37d83`)} on2={() => fetchMovie(`https://api.themoviedb.org/3/trending/movie/week?api_key=f4d13e54ee0dd343bf1d107564f37d83`)} on3={() => fetchMovie(`https://api.themoviedb.org/3/movie/top_rated?api_key=f4d13e54ee0dd343bf1d107564f37d83#`)} className="" />
+        <Header on1={(event)=> {fetchMovie(`https://api.themoviedb.org/3/trending/movie/day?api_key=f4d13e54ee0dd343bf1d107564f37d83`); setClose("");document.getElementById("hehe").value=""; toggle(event.target.innerText);}} on2={(event) => {fetchMovie(`https://api.themoviedb.org/3/trending/movie/week?api_key=f4d13e54ee0dd343bf1d107564f37d83`); setClose("");document.getElementById("hehe").value="";toggle(event.target.innerText);}} on3={(event) => {fetchMovie(`https://api.themoviedb.org/3/movie/top_rated?api_key=f4d13e54ee0dd343bf1d107564f37d83#`); setClose("");document.getElementById("hehe").value="";toggle(event.target.innerText);}} className="" />
         <div className="rounded-b-2xl w-[96%] md:w-[80%] mx-auto pl-10 pt-6 pb-8 md:pb-0 bg-[url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg')]">
 
           <p className="text-5xl md:text-6xl text-white mb-2">Welcome</p>
