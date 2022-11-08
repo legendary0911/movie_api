@@ -61,7 +61,7 @@ function MoviePage(props) {
                     <img src={arr.poster_path} className=' h-[40%] w-[60%] lg:w-96 lg:h-[80%] rounded-2xl mx-auto lg:mx-0 lg:ml-[5%] lg:mr-[1%] lg:mt-16 lg:pt-0 pt-20 lg:mb-16'></img>
                 
                 <div className='info mb-20 pb-28 backdrop-blur-3xl bg-white/[0.06] mr-10 ml-[5%] md:ml-[0%] mt-16 lg:mb-16 rounded-2xl div   pl-5'>
-                    <div className='text-5xl md:text-6xl font-medium mt-24'>
+                    <div className='text-5xl md:text-6xl font-medium mt-6 pt-12 md:pt-0'>
                         <p>{arr.title}</p>
 
                     </div>

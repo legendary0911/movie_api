@@ -25,8 +25,8 @@ function HomePage() {
 
 
 
-  function handleFilter() {
-
+  function handleFilter(e) {
+  e.preventDefault();
     const searchWord = document.getElementById("hehe").value;
     console.log(searchWord)
     setSearch(searchWord);
@@ -143,11 +143,11 @@ function HomePage() {
 
           <p className="text-5xl md:text-6xl text-white mb-2">Welcome</p>
           <p className="text-4xl md:text-5xl text-white tracking-wide brightness-150 ">Million of movies,TV shows and people to discover. Explore now.</p>
-          <div className=" text-center ">
+          <form onSubmit={(event)=>handleFilter(event)} className=" text-center ">
             <input id="hehe"onChange={(event)=>{setClose(event.target.value)}} type="text" placeholder="What are you loooking for..." className=" text-black mt-10 mb-12 w-[60%] md:w-[60%] h-12 rounded-xl pl-5 ml-10  "  />
-            <SearchIcon onClick={handleFilter} className=" text-blue-500 font-semibold md:scale-[1.3] relative top-[3.5rem] right-[32%]  md:top-0 bg-white scale-[1.4]  px-1 py-1 rounded-full md:bg-transparent md:right-10 bottom-0.5 " />
+            <SearchIcon onClick={(event)=>handleFilter(event)} className=" text-blue-500 font-semibold md:scale-[1.3] relative top-[3.5rem] right-[32%]  md:top-0 bg-white scale-[1.4]  px-1 py-1 rounded-full md:bg-transparent md:right-10 bottom-0.5 " />
            {close===""?<div className="relative invisible left-[74%] bottom-[5.2rem] w-fit  "><Close onClick={(event)=>{document.getElementById("hehe").value=""; setClose("") }} className=" text-blue-500 font-semibold md:scale-[1.2] bg-white scale-[1.4]  px-1 py-1 rounded-full hover:bg-gray-300 md:bg-transparent  md:bg-gray-200  " /></div>:<div className="relative  left-[74%] bottom-[5.2rem] w-fit  "><Close onClick={(event)=>{document.getElementById("hehe").value=""; setClose("") }} className=" text-blue-500 font-semibold md:scale-[1.2] bg-white scale-[1.4]  px-1 py-1 rounded-full hover:bg-gray-300 md:bg-transparent  md:bg-gray-200  " /></div>} 
-          </div>
+          </form>
 
         </div>
 
