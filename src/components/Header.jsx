@@ -14,7 +14,7 @@ function Header(props) {
     }
 
     return (
-        <div className="sticky top-0 z-10 bg-[#111827] text-white">
+        <div className={props.topclass}>
             <div className="  flex ">
 
                 <div className=" text-2xl font-[620] pl-[7%] pt-8">
