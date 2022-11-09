@@ -62,7 +62,7 @@ function MoviePage(props) {
     let min=arr.runtime%60;
     let hour=Math.floor(arr.runtime/60);
     return (
-        <div className='bg-cover'  style={ {backgroundImage: `linear-gradient(rgba(0,0,0,0.1),rgba(255,255,255,0.07),rgba(0,0,0,0.4)) ,url(${arr.backdrop_path} )`}}>
+        <div className='bg-cover'  style={ {backgroundImage: `linear-gradient(rgba(255,255,255,0.07),rgba(0,0,0,1)) ,url(${arr.backdrop_path} )`}}>
             <Header topclass=" bg-gradient-to-b from-black via-black/60 text-white brightness-200"></Header>
             <div className='lg:flex brightness-100 bg-cover  text-white  ' >
               
