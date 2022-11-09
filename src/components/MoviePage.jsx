@@ -23,7 +23,7 @@ function MoviePage(props) {
                     );
                 }
                 return response.json();
-
+                console.log(response.json);
             })
             .then((films) => {
 
@@ -32,8 +32,17 @@ function MoviePage(props) {
                     films.poster_path = "/vZ9WvnZnhEsyMpxxTyGhZGdoBaS.jpg"
                     console.log("null poster value")
                 }
-                films.poster_path = "https://image.tmdb.org/t/p/w500" + films.poster_path;
+                films.poster_path = "https://image.tmdb.org/t/p/original" + films.poster_path;
 
+                if (films.backdrop_path === null) {
+                    films.backdrop_path = "https://wallpapers.com/images/hd/starry-sky-night-dark-sky-stars-zeyj6p1s41agbk57.jpg"
+                    console.log("null poster value")
+                }
+                else{
+                    films.backdrop_path = "https://image.tmdb.org/t/p/original" + films.backdrop_path;
+                }
+                
+                
 
                 console.log(films);
                 setarr(films);
@@ -53,14 +62,14 @@ function MoviePage(props) {
     let min=arr.runtime%60;
     let hour=Math.floor(arr.runtime/60);
     return (
-        <div className='bg-[url("https://wallpapers.com/images/hd/starry-sky-night-dark-sky-stars-zeyj6p1s41agbk57.jpg")]'>
+        <div className='bg-cover'  style={ {backgroundImage: `linear-gradient(rgba(255,255,255,0.07),rgba(0,0,0,1)) ,url(${arr.backdrop_path} )`}}>
             <Header></Header>
-            <div className='lg:flex brightness-100 text-white  bg-[url("https://wallpapers.com/images/hd/starry-sky-night-dark-sky-stars-zeyj6p1s41agbk57.jpg")]'>
+            <div className='lg:flex brightness-100 bg-cover  text-white  ' >
               
 
                     <img src={arr.poster_path} className=' h-[40%] w-[60%] lg:w-96 lg:h-[80%] rounded-2xl mx-auto lg:mx-0 lg:ml-[5%] lg:mr-[1%] lg:mt-16 lg:pt-0 pt-20 lg:mb-16'></img>
                 
-                <div className='info mb-20 pb-28 backdrop-blur-3xl bg-white/[0.06] mr-10 ml-[5%] md:ml-[0%] mt-16 lg:mb-16 rounded-2xl div   pl-5'>
+                <div className='info mb-20 pb-28 backdrop-blur-sm backdrop-brightness-105 bg-black/75 mr-10 ml-[5%] md:ml-[0%] mt-16 lg:mb-16 rounded-2xl div   pl-5'>
                     <div className='text-5xl md:text-6xl font-medium mt-6 pt-12 md:pt-0'>
                         <p>{arr.title}</p>
 

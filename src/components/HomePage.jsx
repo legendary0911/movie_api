@@ -139,7 +139,7 @@ function HomePage() {
     <div>
       <div className=' bg-[url("https://i.stack.imgur.com/yDr7J.jpg")]'>
         <Header on1={(event)=> {fetchMovie(`https://api.themoviedb.org/3/trending/movie/day?api_key=f4d13e54ee0dd343bf1d107564f37d83`); setClose("");document.getElementById("hehe").value=""; toggle(event.target.innerText);}} on2={(event) => {fetchMovie(`https://api.themoviedb.org/3/trending/movie/week?api_key=f4d13e54ee0dd343bf1d107564f37d83`); setClose("");document.getElementById("hehe").value="";toggle(event.target.innerText);}} on3={(event) => {fetchMovie(`https://api.themoviedb.org/3/movie/top_rated?api_key=f4d13e54ee0dd343bf1d107564f37d83#`); setClose("");document.getElementById("hehe").value="";toggle(event.target.innerText);}} className="" />
-        <div className="rounded-b-2xl w-[96%] md:w-[80%] mx-auto pl-10 pt-6 pb-8 md:pb-0 bg-[url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg')]">
+        <div className="rounded-b-2xl w-[96%] md:w-[80%] mx-auto pl-10 pt-6 pb-8 md:pb-0 opacity-80 bg-[url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg')]" style={ {backgroundImage: `linear-gradient(rgba(255,255,255,0.11),rgba(0,0,0,0.2)) ,url('https://img5.goodfon.com/wallpaper/nbig/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg' )`}}>
 
           <p className="text-5xl md:text-6xl text-white mb-2">Welcome</p>
           <p className="text-4xl md:text-5xl text-white tracking-wide brightness-150 ">Million of movies,TV shows and people to discover. Explore now.</p>
